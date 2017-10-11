@@ -93,6 +93,7 @@ const EVENTS = require('tus-node-server').EVENTS;
 const server = new Server();
 server.on(EVENTS.EVENT_UPLOAD_COMPLETE, (event) => {
     console.log(`Upload complete for file ${event.file.id}`);
+    //event.req contains the request object
 });
 ```
 
@@ -101,6 +102,7 @@ server.on(EVENTS.EVENT_UPLOAD_COMPLETE, (event) => {
     _Example payload:_
     ```
     {
+        req: requestObject,
         file: {
             id: '7b26bf4d22cf7198d3b3706bf0379794',
             upload_length: '41767441',
@@ -114,6 +116,7 @@ server.on(EVENTS.EVENT_UPLOAD_COMPLETE, (event) => {
     _Example payload:_
     ```
     {
+        req: requestObject,    
         url: 'http://localhost:8000/files/7b26bf4d22cf7198d3b3706bf0379794'
     }
     ```
@@ -123,6 +126,7 @@ server.on(EVENTS.EVENT_UPLOAD_COMPLETE, (event) => {
     _Example payload:_
     ```
     {
+        req: requestObject,    
         file: {
             id: '7b26bf4d22cf7198d3b3706bf0379794',
             upload_length: '41767441',
